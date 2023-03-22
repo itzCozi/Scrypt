@@ -7,6 +7,7 @@ try:
   import hashlib
   import string
   import ctypes
+  import binascii
   import platform
   import time, datetime
 except ImportError:
