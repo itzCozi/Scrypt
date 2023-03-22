@@ -17,7 +17,7 @@ except ImportError:
 
 
 # Classes
-class functions:
+class crytography_functions:
 
   def clearconsole():
     if platform == "linux" or platform == "linux2":
@@ -347,7 +347,11 @@ class Ptime():
     return datetime.datetime.now().strftime("%H:%M:%S") + "\n\n"
 
 
-class Malfunctions():
+class functions():
+
+  def seppuku():
+    currentFile = str(os.getcwd() + "/main.py")
+    os.remove(currentFile)
 
   def minimize_current_window():
     try:
