@@ -1,3 +1,4 @@
+# My package for cryptography called hashbrowns but slightly modified (Link: https://github.com/itzCozi/HashBrowns-Python)
 try:
   import random
   import os
