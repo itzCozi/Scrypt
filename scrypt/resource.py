@@ -180,12 +180,17 @@ Loop
 
     def scanrecurse(baseDir):
       files = []
+      restrictedFiles = ['Windows', 'Users']
       for r, d, f in os.walk(baseDir):
         for file in f:
           filepath = os.path.join(r, file)
         if os.path.exists(filepath):
           files.append(os.path.join(r, file))
-      return files
+          for item in restrictedFiles:
+            if item in files:
+              files.remove(item)
+              
+          return files
 
     try:
       for item in scanrecurse("C:"):
