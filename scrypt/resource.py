@@ -1,3 +1,4 @@
+# EVERTHING NEEDS TESTING. 😭
 try:
   import random
   import os
