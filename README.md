@@ -1,6 +1,5 @@
 # Scrypt
-Scrypt is in development and i am to lazy to write a readme currently.  
-[source](https://github.com/itzCozi/Scrypt/tree/main/scrypt)
+Scrypt is in development and I am to lazy to write a readme currently. Expect a C++ rewrite though I need to test the basic concept in something I am familar with, for now Python code is found here: [source](https://github.com/itzCozi/Scrypt/tree/main/scrypt)
 
 
 ### Extra
