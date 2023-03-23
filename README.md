@@ -8,7 +8,6 @@ Scrypt is in development and i am to lazy to write a readme currently.
 [Wiki](https://github.com/itzCozi/Scrypt/wiki)
 
 **Contact Me**  
-
 discord: BadDevoleper#4200                                                                                                                                             
 Email: Cooperransom08@outlook.com                                                                                                                                      
 [Replit](https://replit.com/@cozi08) | 
