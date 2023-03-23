@@ -7,7 +7,7 @@ Scrypt is in development and i am to lazy to write a readme currently.
 [Latest Release](https://github.com/itzCozi/Scrypt/releases)  
 [Wiki](https://github.com/itzCozi/Scrypt/wiki)
 
-### Contact Me
+**Contact Me**
 discord: BadDevoleper#4200                                                                                                                                             
 Email: Cooperransom08@outlook.com                                                                                                                                      
 [Replit](https://replit.com/@cozi08) | 
