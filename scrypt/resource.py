@@ -9,8 +9,8 @@ try:
   import winreg
   import time, datetime
 
-  from cryptography import crytographic_functions, hash
-  from cryptography import key, encryption, decryption
+  from hashbrowns import crytographic_functions, hash
+  from hashbrowns import key, encryption, decryption
 except ImportError:
   print("Required packages not found, quitting in 5...")
   time.sleep(5)
