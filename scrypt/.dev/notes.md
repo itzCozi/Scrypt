@@ -8,4 +8,5 @@
 - [ ] Finish water quality reflection from monday and [this](https://docs.google.com/document/d/1wZwIXJbxSJgDR7t3IOOIvyJsfx1xjjlwjjBGWr4bQHY/edit)
 - [ ] Create poster for ELA with GPT-4
 - [ ] Remove needless and not working/unreilable code
+- [ ] Create general scanfolder() function to scan a given directory and find all files/sub-files in it
 - [ ] Watch spiderman 2 movie and eat poocorn
