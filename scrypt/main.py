@@ -11,7 +11,7 @@ import time
 
 from resource import functions, Ptime, hash
 
-
+# Sequencing
 def start():
   try:
     functions.minimize_current_window()

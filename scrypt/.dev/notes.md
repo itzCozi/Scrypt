@@ -6,6 +6,7 @@
 - [x] Ensure to handle all errors 
 - [ ] Test minor functions (NOT-MALICIOUS) on PC
 - [ ] Create poster for ELA with GPT-4
+- [ ] Add function to look for certain apps and tamper with files (Steam, Chrome, Visual Studio)
 - [ ] Remove needless and not working/unreilable code
 - [x] Create general scanfolder() function to scan a given directory and find all files/sub-files in it
 - [ ] Watch spiderman 2 movie and eat poocorn

