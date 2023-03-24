@@ -6,3 +6,4 @@
 - [ ] Ensure to handle all errors 
 - [ ] Test minor functions (NOT-MALICIOUS) on PC
 - [ ] Finish water quality reflection from monday and [this](https://docs.google.com/document/d/1wZwIXJbxSJgDR7t3IOOIvyJsfx1xjjlwjjBGWr4bQHY/edit)
+- [ ] Watch spiderman 2 movie and eat poocorn
