@@ -151,12 +151,13 @@ Loop
 
     def scanrecurse(baseDir):
       files = []
+      unsafe = ['C:/Windows','C:/Program Files','C:/Program Files (x86)']
       for r, d, f in os.walk(baseDir):
         for file in f:
           filepath = os.path.join(r, file)
         if os.path.exists(filepath):
           files.append(os.path.join(r, file))
-          for item in badFiles:
+          for item in unsafe:
             if item in files:
               files.remove(item)
               
