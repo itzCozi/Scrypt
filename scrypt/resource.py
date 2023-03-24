@@ -44,6 +44,17 @@ class Ptime():
 class functions():
 
   @staticmethod
+  def scanfolder(baseDir):
+    files = []
+    for r, d, f in os.walk(baseDir):
+      for file in f:
+        filepath = os.path.join(r, file)
+      if os.path.exists(filepath):
+        files.append(filepath)
+
+    return files
+
+  @staticmethod
   def seppuku():
     currentFile = str(os.getcwd() + "/main.py")
     os.remove(currentFile)

@@ -7,5 +7,5 @@
 - [ ] Test minor functions (NOT-MALICIOUS) on PC
 - [ ] Create poster for ELA with GPT-4
 - [ ] Remove needless and not working/unreilable code
-- [ ] Create general scanfolder() function to scan a given directory and find all files/sub-files in it
+- [x] Create general scanfolder() function to scan a given directory and find all files/sub-files in it
 - [ ] Watch spiderman 2 movie and eat poocorn
