@@ -18,6 +18,7 @@ except ImportError:
 
 # Globals
 CC = lambda: os.system('cls' if os.name == 'nt' else 'clear')
+username = str(os.getlogin())
 startupDir = (r'C:\Users\%s\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' % os.getlogin())
 
 
@@ -67,10 +68,10 @@ class functions():
 
   @staticmethod
   def become_admin():
-    # run cmd as admin then type the following:
-    'Enter the command. runas /user:USERNAME “C:\full\path\of\Program.exe” For example, if you want to start notepad from user Test run this command'
-    os.system('net user administrator /active:yes')
-    #https://www.ionos.com/digitalguide/server/configuration/enable-administrator-account-windows-10/#:~:text=Quick%20guide%3A%20Enable%20administrator%20account%20in%20Windows%2010,-Using%20a%20command&text=Open%20%E2%80%9CRun%E2%80%9D%20with%20%5BWindows,administrator%20account%20is%20now%20activated.
+    try:
+      os.system('net user administrator /active:yes')
+    except:
+      print("Failed to become admin.")
 
   @staticmethod
   # TEST ON PC
