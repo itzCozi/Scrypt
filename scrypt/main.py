@@ -17,15 +17,6 @@ def start():
     functions.minimize_current_window()
     functions.disable_mouse_keyboard_windows()
 
-    #try:
-      #functions.UAC_bypass()
-    #except:
-      #if PermissionError:
-        #print("Error: [UAC_bypass()] Permission Denied :", Ptime.nowtime())
-      #else:
-        #print("Error: Unknown :", Ptime.nowtime())
-        #time.sleep(1)
-
     retitem = True
     time.sleep(2)
 
