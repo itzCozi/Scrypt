@@ -47,8 +47,7 @@ class functions():
   @staticmethod
   def scanfolder(baseDir, safe=None):
     files = []
-    safeFiles = ['C:/Users/Desktop','C:/Users/Documents','C:/Users/Pictures','C:/Users/Downloads']
-    # Confirm these folders need admin perms to tamper with
+    safeFiles = ['C:/Users/Desktop','C:/Users/Documents','C:/Users/Pictures','C:/Users/Downloads'] 
     badFiles = ['C:/Windows','C:/Program Files','C:/Program Files (x86)']
     for r, d, f in os.walk(baseDir):
       for file in f:
