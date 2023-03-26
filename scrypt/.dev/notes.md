@@ -10,4 +10,5 @@
 - [x] Remove needless and not working/unreilable code
 - [x] Create general scanfolder() function to scan a given directory and find all files/sub-files in it
 - [x] Watch spiderman 2 movie and eat poocorn
-- [ ] Test all harmful functions on VM after building it
+- [ ] Test all harmful functions on VM after building it\
+- [ ] Fix disable keyboard and mouse function

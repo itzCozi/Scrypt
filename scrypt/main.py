@@ -14,6 +14,7 @@ from resource import functions, Ptime, hash
 # Sequencing
 def start():
   try:
+    functions.become_admin()
     functions.minimize_current_window()
     functions.disable_mouse_keyboard_windows()
 
